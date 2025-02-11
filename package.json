@@ -1,0 +1,12 @@
+{
+  "name": "sales-control-app",
+  "private": true,
+  "workspaces": [
+    "packages/client",
+    "packages/server",
+    "packages/electron"
+  ],
+  "dependencies": {
+    "electron": "^1.0.0"
+  }
+}
