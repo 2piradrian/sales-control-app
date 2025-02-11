@@ -6,7 +6,14 @@
     "packages/server",
     "packages/electron"
   ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=client\" \" npm run start --workspace=electron\""
+  },
   "dependencies": {
     "electron": "^1.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "wait-on": "^6.0.0"
   }
 }
