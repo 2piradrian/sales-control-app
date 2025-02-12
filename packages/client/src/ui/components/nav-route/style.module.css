@@ -1,0 +1,13 @@
+.route {
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--primary)
+}
+
+.active {
+    font-weight: 600;
+}
+
+.inactive {
+    font-weight: 400;
+}

@@ -1,3 +1,4 @@
+import Header from "../components/header/header";
 import "../styles/global.css";
 
 type Props = {
@@ -7,6 +8,7 @@ type Props = {
 export default function Layout({ children }: Props) {
     return (
         <div className="container">
+            <Header />
             <main>{children}</main>
         </div>
     );
