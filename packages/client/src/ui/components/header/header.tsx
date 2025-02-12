@@ -11,7 +11,6 @@ export default function Header() {
               <NavRoute name="Inicio" route="/" />
               <NavRoute name="Dashboard" route="/dashboard" />
               <NavRoute name="Productos" route="/products" />
-              <NavRoute name="Presupuestos" route="/budgets" />
               <NavRoute name="Ventas" route="/sales" />
               <NavRoute name="Usuarios" route="/users" />
           </div>
