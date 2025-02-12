@@ -9,7 +9,11 @@ export default function Header() {
         <nav className={style.routesContainer}>
           <div className={style.routes}>
               <NavRoute name="Inicio" route="/" />
+              <NavRoute name="Dashboard" route="/dashboard" />
               <NavRoute name="Productos" route="/products" />
+              <NavRoute name="Presupuestos" route="/budgets" />
+              <NavRoute name="Ventas" route="/sales" />
+              <NavRoute name="Usuarios" route="/users" />
           </div>
           <div className={style.user}>
               <UserIcon name="Adrián Rodriguez" />

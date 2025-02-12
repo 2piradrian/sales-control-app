@@ -6,6 +6,11 @@ export default function RoutesManager() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomeRoute />} />
+                <Route path="/dashboard" element={<HomeRoute />} />
+                <Route path="/products" element={<HomeRoute />} />
+                <Route path="/budgets" element={<HomeRoute />} />
+                <Route path="/sales" element={<HomeRoute />} />
+                <Route path="/users" element={<HomeRoute />} />
             </Routes>
         </BrowserRouter>
     )
