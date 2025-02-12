@@ -1,7 +1,9 @@
+import Layout from "../../layout/layout";
+
 export default function HomeRoute() {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <Layout>
+        <h2>Welcome to my app!</h2>
+    </Layout>
   );
 };
