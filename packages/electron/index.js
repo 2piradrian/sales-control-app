@@ -15,8 +15,10 @@ app.whenReady().then(() => {
 
   // Crear la ventana de Electron
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1280,
+    height: 720,
+    minWidth: 1280,
+    minHeight: 720,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true
