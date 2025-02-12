@@ -1,8 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import RoutesManager from './ui/routes/routes-manager'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <h1>Hola</h1>
+    <RoutesManager />
   </StrictMode>,
 )
