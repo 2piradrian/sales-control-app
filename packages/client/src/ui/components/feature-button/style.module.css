@@ -8,7 +8,6 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition: all 2s ease;
 }
 
 .name {
@@ -32,6 +31,7 @@
 }
 
 .container:hover > .icon {
+    transition: all 1s ease;
     transform: scale(1.2);
     opacity: 0.2;
 }
