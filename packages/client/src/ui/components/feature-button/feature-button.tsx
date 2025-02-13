@@ -9,7 +9,11 @@ type Props = {
 export default function FeatureButton({ name, description, icon }: Props) {
     return (
         <div className={style.container}>
-            {name} - {description} - {icon}
+            <h2 className={style.name}>{name}</h2>
+            <p className={style.description}>
+                {description}
+            </p>
+            <img className={style.icon} src={icon} alt={name} />
         </div>
     );
 };

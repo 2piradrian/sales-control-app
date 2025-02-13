@@ -10,10 +10,21 @@ export default function ProductsRoute() {
             <div className={`${style.delimiter} delimiter`}>
                 <Title text="Productos" />
                 <div className={style.features}>
-                    <FeatureButton name="Feature 1" description="asd" icon="asdasd"/>
-                    <FeatureButton name="Feature 1" description="asd" icon="asdasd"/>
-                    <FeatureButton name="Feature 1" description="asd" icon="asdasd"/>
-                    <FeatureButton name="Feature 1" description="asd" icon="asdasd"/>
+                    <FeatureButton 
+                        name="Registrá nuevos productos" 
+                        description="Agregá nuevos productos al sistema." 
+                        icon="/icons/addfolder.svg"
+                    />
+                    <FeatureButton 
+                        name="Editá productos existentes" 
+                        description="Modificá la información de los productos existentes en el sistema." 
+                        icon="/icons/pencil.svg"
+                    />
+                    <FeatureButton 
+                        name="Registrá una compra" 
+                        description="Registrá una compra de productos para reponer stock." 
+                        icon="/icons/alertfile.svg"
+                    />
                 </div>
             </div>
         </section>
