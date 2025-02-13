@@ -4,7 +4,6 @@
 
 .delimiter {
     min-height: 100%;
-    padding: 40px;
     justify-content: flex-start;
     align-items: flex-start;
 }

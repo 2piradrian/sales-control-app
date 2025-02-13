@@ -45,6 +45,7 @@ body {
 .delimiter {
 	width: 100%;
 	max-width: var(--max-width);
+    padding: 40px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
