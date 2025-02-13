@@ -14,16 +14,19 @@ export default function ProductsRoute() {
                         name="Registrá nuevos productos" 
                         description="Agregá nuevos productos al sistema." 
                         icon="/icons/addfolder.svg"
+                        path=""
                     />
                     <FeatureButton 
                         name="Editá productos existentes" 
                         description="Modificá la información de los productos existentes en el sistema." 
                         icon="/icons/pencil.svg"
+                        path=""
                     />
                     <FeatureButton 
                         name="Registrá una compra" 
                         description="Registrá una compra de productos para reponer stock." 
                         icon="/icons/alertfile.svg"
+                        path=""
                     />
                 </div>
             </div>
