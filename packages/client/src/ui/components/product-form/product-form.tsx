@@ -57,6 +57,14 @@ export default function ProductForm() {
           value=""
           values={["Activo", "Inactivo"]}
         />
+        <InputLabel
+          id="index"
+          label="Índice de búsqueda"
+          placeholder="Palabras clave para búsqueda separadas por un espacio"
+          required={true}
+          type="text"
+          value=""
+        />
     </div>
   );
 }
