@@ -1,6 +1,7 @@
 import { DataTypes, Model } from "sequelize";
 import { env } from "../../../config";
 import { PostgreDatabase } from "../database";
+import { ProductModel } from "./product";
 
 const database = new PostgreDatabase(env.POSTGRES_DB, env.POSTGRES_USER, env.POSTGRES_PASSWORD);
 const sequelize = database.getSequelize();
