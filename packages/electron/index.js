@@ -6,16 +6,15 @@ let window;
 let serverProcess;
 
 app.whenReady().then(() => {
-  //// Iniciar el backend de Express
-  //serverProcess = spawn("node", [path.join(__dirname, "../backend/index.js")], {
-  //  stdio: "ignore",
-  //  detached: true
-  //});
-  //serverProcess.unref();
+
+  serverProcess = spawn("node", [path.join(__dirname, "../server/index.js")], {
+    stdio: "ignore",
+    detached: true
+  });
+  serverProcess.unref();
 
   Menu.setApplicationMenu(null);
 
-  // Crear la ventana de Electron
   window = new BrowserWindow({
     width: 1280,
     height: 720,
@@ -27,12 +26,12 @@ app.whenReady().then(() => {
     }
   });
 
- // Cargar la app React
- window.loadURL("http://localhost:5173");
+  window.loadURL("http://localhost:5173");
 
- window.on("closed", () => {
-   window = null;
- });
+  window.on("closed", () => {
+    window = null;
+    if (serverProcess) serverProcess.kill();
+  });
 
 });
 
