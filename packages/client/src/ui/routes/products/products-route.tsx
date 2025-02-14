@@ -14,13 +14,13 @@ export default function ProductsRoute() {
                         name="Creá nuevos productos" 
                         description="Agregá nuevos productos al sistema." 
                         icon="/icons/addfolder.svg"
-                        path="/products/create"
+                        path="/products/create-product"
                     />
                     <FeatureButton 
                         name="Editá o eliminá productos" 
                         description="Modificá la información de los productos existentes en el sistema." 
                         icon="/icons/pencil.svg"
-                        path="/products/edit"
+                        path="/products/edit-product"
                     />
                     <FeatureButton 
                         name="Registrá una compra" 
@@ -32,13 +32,13 @@ export default function ProductsRoute() {
                         name="Creá una categoría" 
                         description="Agregá una nueva categoría de productos."
                         icon="/icons/categorylist.svg"
-                        path=""
+                        path="/products/create-category"
                     />
                     <FeatureButton 
                         name="Editá o eliminá categorías" 
                         description="Modificá las categorías de productos existentes en el sistema."
                         icon="/icons/pencil.svg"
-                        path=""
+                        path="/products/edit-category"
                     />
                 </div>
             </div>

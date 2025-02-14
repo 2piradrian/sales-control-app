@@ -1,15 +1,15 @@
-import ProductForm from "../../components/product-form/product-form";
+import CategoryForm from "../../components/category-form/category-form";
 import Title from "../../components/title/title";
 import Layout from "../../layout/layout";
 import style from "./style.module.css";
 
-export default function ProductsCreate() {
+export default function CategoriesCreate() {
   return (
     <Layout>
       <section className={`${style.container} container`}>
         <div className={`${style.delimiter} delimiter`}>
-          <Title text="Crear Producto" />
-          <ProductForm />
+          <Title text="Crear Categoría" />
+          <CategoryForm />
         </div>
       </section>
     </Layout>
