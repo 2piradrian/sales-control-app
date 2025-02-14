@@ -28,6 +28,18 @@ export default function ProductsRoute() {
                         icon="/icons/alertfile.svg"
                         path=""
                     />
+                    <FeatureButton 
+                        name="Creá una categoría" 
+                        description="Agregá una nueva categoría de productos."
+                        icon="/icons/categorylist.svg"
+                        path=""
+                    />
+                    <FeatureButton 
+                        name="Editá categorías existentes" 
+                        description="Modificá las categorías de productos existentes en el sistema."
+                        icon="/icons/pencil.svg"
+                        path=""
+                    />
                 </div>
             </div>
         </section>
