@@ -11,7 +11,7 @@ export default function ProductsRoute() {
                 <Title text="Productos" />
                 <div className={style.features}>
                     <FeatureButton 
-                        name="Registrá nuevos productos" 
+                        name="Creá nuevos productos" 
                         description="Agregá nuevos productos al sistema." 
                         icon="/icons/addfolder.svg"
                         path="/products/create"

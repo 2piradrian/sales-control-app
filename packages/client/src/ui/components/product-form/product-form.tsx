@@ -69,7 +69,7 @@ export default function ProductForm() {
         />
         <div className={style.buttons}>
           <OutlinedButton text="Cancelar" onClick={() => {}} />
-          <FilledButton text="Registrar" onClick={() => {}} />
+          <FilledButton text="Crear" onClick={() => {}} />
         </div>
     </div>
   );
