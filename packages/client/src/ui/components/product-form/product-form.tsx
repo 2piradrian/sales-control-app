@@ -1,4 +1,6 @@
+import FilledButton from "../filled-button/filled-button";
 import InputLabel from "../input-label/input-label";
+import OutlinedButton from "../outlined-button/outlined-button";
 import SelectLabel from "../select-label/select-label";
 import style from "./style.module.css";
 
@@ -65,6 +67,10 @@ export default function ProductForm() {
           type="text"
           value=""
         />
+        <div className={style.buttons}>
+          <OutlinedButton text="Cancelar" onClick={() => {}} />
+          <FilledButton text="Registrar" onClick={() => {}} />
+        </div>
     </div>
   );
 }
