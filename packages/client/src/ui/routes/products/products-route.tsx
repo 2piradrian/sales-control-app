@@ -17,7 +17,7 @@ export default function ProductsRoute() {
                         path="/products/create"
                     />
                     <FeatureButton 
-                        name="Editá productos existentes" 
+                        name="Editá o eliminá productos" 
                         description="Modificá la información de los productos existentes en el sistema." 
                         icon="/icons/pencil.svg"
                         path="/products/edit"
@@ -35,7 +35,7 @@ export default function ProductsRoute() {
                         path=""
                     />
                     <FeatureButton 
-                        name="Editá categorías existentes" 
+                        name="Editá o eliminá categorías" 
                         description="Modificá las categorías de productos existentes en el sistema."
                         icon="/icons/pencil.svg"
                         path=""
