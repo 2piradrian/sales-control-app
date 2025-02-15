@@ -1,5 +1,5 @@
 import { env } from "./config";
-import { PostgreDatabase } from "./data/postgresql/database";
+import { PostgresqlDatabase } from "./data/postgresql/database";
 import { AppRouter, Server } from "./presentation";
 
 (async () => {
@@ -8,7 +8,7 @@ import { AppRouter, Server } from "./presentation";
 
 async function main() {
 
-    const postgres = new PostgreDatabase(env.POSTGRES_DB, env.POSTGRES_USER, env.POSTGRES_PASSWORD);
+    const postgres = new PostgresqlDatabase(env.POSTGRES_DB, env.POSTGRES_USER, env.POSTGRES_PASSWORD);
     await postgres.connect();
 
     const server = new Server({

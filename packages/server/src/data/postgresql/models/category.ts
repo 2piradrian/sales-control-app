@@ -1,9 +1,9 @@
 import { DataTypes, Model } from "sequelize";
 import { env } from "../../../config";
-import { PostgreDatabase } from "../database";
+import { PostgresqlDatabase } from "../database";
 import { ProductModel } from "./product";
 
-const database = new PostgreDatabase(env.POSTGRES_DB, env.POSTGRES_USER, env.POSTGRES_PASSWORD);
+const database = new PostgresqlDatabase(env.POSTGRES_DB, env.POSTGRES_USER, env.POSTGRES_PASSWORD);
 const sequelize = database.getSequelize();
 
 export class CategoryModel extends Model {};
@@ -30,3 +30,5 @@ CategoryModel.init({
     sequelize,
     modelName: "category"
 });
+
+CategoryModel.hasMany(ProductModel, { foreignKey: "categoryId" });

@@ -1,10 +1,10 @@
 import { DataTypes, Model } from "sequelize";
 import { env } from "../../../config";
-import { PostgreDatabase } from "../database";
+import { PostgresqlDatabase } from "../database";
 import { CategoryModel } from "./category";
 import { StatusModel } from "./status";
 
-const database = new PostgreDatabase(env.POSTGRES_DB, env.POSTGRES_USER, env.POSTGRES_PASSWORD);
+const database = new PostgresqlDatabase(env.POSTGRES_DB, env.POSTGRES_USER, env.POSTGRES_PASSWORD);
 const sequelize = database.getSequelize();
 
 export class ProductModel extends Model {};
@@ -55,11 +55,11 @@ ProductModel.init({
         type: DataTypes.TEXT,
         allowNull: false
     },
-    created_at: {
+    createdAt: {
         type: DataTypes.DATE,
         allowNull: false
     },
-    updated_at: {
+    updatedAt: {
         type: DataTypes.DATE,
         allowNull: false
     }
@@ -67,3 +67,6 @@ ProductModel.init({
     sequelize,
     modelName: "product"
 });
+
+ProductModel.belongsTo(CategoryModel, { foreignKey: "categoryId" });
+ProductModel.belongsTo(StatusModel, { foreignKey: "statusId" });

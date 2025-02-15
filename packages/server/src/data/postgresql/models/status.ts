@@ -1,9 +1,9 @@
 import { DataTypes, Model } from "sequelize";
 import { env } from "../../../config";
-import { PostgreDatabase } from "../database";
+import { PostgresqlDatabase } from "../database";
 import { ProductModel } from "./product";
 
-const database = new PostgreDatabase(env.POSTGRES_DB, env.POSTGRES_USER, env.POSTGRES_PASSWORD);
+const database = new PostgresqlDatabase(env.POSTGRES_DB, env.POSTGRES_USER, env.POSTGRES_PASSWORD);
 const sequelize = database.getSequelize();
 
 export class StatusModel extends Model {};
@@ -18,11 +18,11 @@ StatusModel.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    created_at: {
+    createdAt: {
         type: DataTypes.DATE,
         allowNull: false
     },
-    updated_at: {
+    updatedAt: {
         type: DataTypes.DATE,
         allowNull: false
     }
@@ -30,3 +30,5 @@ StatusModel.init({
     sequelize,
     modelName: "category"
 });
+
+StatusModel.hasMany(ProductModel, { foreignKey: "statusId" });

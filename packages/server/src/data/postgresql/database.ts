@@ -1,7 +1,9 @@
 import { Sequelize } from "sequelize";
-import { env } from "../../config";
+import { ProductModel } from "./models/product";
+import { CategoryModel } from "./models/category";
+import { StatusModel } from "./models/status";
 
-export class PostgreDatabase {
+export class PostgresqlDatabase {
 
     public sequelize: Sequelize;
 
@@ -29,4 +31,5 @@ export class PostgreDatabase {
             throw error;
         }
     }
+
 }
