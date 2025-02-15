@@ -9,6 +9,10 @@
 	box-sizing: border-box;
 	user-select: none;
 }
+
+::-webkit-scrollbar {
+	display: none;
+  }
   
 html {
 	width: 100vw;
@@ -45,6 +49,7 @@ body {
 .delimiter {
 	width: 100%;
 	max-width: var(--max-width);
+    padding: 40px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

@@ -5,6 +5,10 @@
     border-bottom: 1px solid var(--surface);
 }
 
+.delimiter {
+    padding: 0px !important;
+}
+
 .routesContainer {
     height: 100%;
     width: 100%;
