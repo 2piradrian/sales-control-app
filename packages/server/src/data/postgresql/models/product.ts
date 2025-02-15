@@ -27,7 +27,7 @@ ProductModel.init({
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    stock_alert: {
+    stockAlert: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
