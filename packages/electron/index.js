@@ -1,34 +1,38 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, Menu } = require("electron");
 const path = require("path");
 const { spawn } = require("child_process");
 
-let mainWindow;
+let window;
 let serverProcess;
 
 app.whenReady().then(() => {
-  //// Iniciar el backend de Express
-  //serverProcess = spawn("node", [path.join(__dirname, "../backend/index.js")], {
-  //  stdio: "ignore",
-  //  detached: true
-  //});
-  //serverProcess.unref();
 
-  // Crear la ventana de Electron
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+  serverProcess = spawn("node", [path.join(__dirname, "../server/index.js")], {
+    stdio: "ignore",
+    detached: true
+  });
+  serverProcess.unref();
+
+  Menu.setApplicationMenu(null);
+
+  window = new BrowserWindow({
+    width: 1280,
+    height: 720,
+    minWidth: 1280,
+    minHeight: 720,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true
     }
   });
 
- // Cargar la app React
- mainWindow.loadURL("http://localhost:5173");
+  window.loadURL("http://localhost:5173");
 
- mainWindow.on("closed", () => {
-   mainWindow = null;
- });
+  window.on("closed", () => {
+    window = null;
+    if (serverProcess) serverProcess.kill();
+  });
+
 });
 
 //// Cierra el backend cuando se cierre Electron
