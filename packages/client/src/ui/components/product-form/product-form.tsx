@@ -19,7 +19,7 @@ export default function ProductForm() {
           id="description"
           label="Descripción"
           placeholder="Descripción del producto"
-          required={true}
+          required={false}
           type="text"
           value=""
         />
@@ -58,14 +58,6 @@ export default function ProductForm() {
           label="Estado"
           value=""
           values={["Activo", "Inactivo"]}
-        />
-        <InputLabel
-          id="index"
-          label="Índice de búsqueda"
-          placeholder="Palabras clave para búsqueda separadas por un espacio"
-          required={true}
-          type="text"
-          value=""
         />
         <div className={style.buttons}>
           <OutlinedButton text="Cancelar" onClick={() => {}} />

@@ -9,8 +9,8 @@ export class ProductEntity {
         public price: number,
         public categoryId: string,
         public statusId: string,
-        public createdAt: Date,
-        public updatedAt: Date,
+        public createdAt: Date | undefined,
+        public updatedAt: Date | undefined,
     ){}
 
     static fromObject(object: {[key: string]: any}): ProductEntity {
