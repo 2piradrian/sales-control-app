@@ -27,7 +27,7 @@ ProductModel.init({
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    stock_alert: {
+    stockAlert: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
@@ -50,10 +50,6 @@ ProductModel.init({
             model: StatusModel,
             key: "id"
         }
-    },
-    index: {
-        type: DataTypes.TEXT,
-        allowNull: false
     },
     createdAt: {
         type: DataTypes.DATE,
