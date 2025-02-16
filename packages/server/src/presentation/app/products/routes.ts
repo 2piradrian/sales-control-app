@@ -10,13 +10,17 @@ export class ProductRoutes {
         const service = new ProductService()
         const controller = new ProductController(service)
 
-        router.get("/get-all", controller.getAll)
-        router.get("/get-by-code", controller.getByCode)
+        router.get("/get-all", [SecretValidator.validate], controller.getAll);
 
-        router.post("/create", [SecretValidator.validate], controller.create)
+        router.get("/get-by-id/:id", [SecretValidator.validate], controller.getById);
+
+        router.get("/get-by-category", [SecretValidator.validate], controller.getByCategory);
+
+        router.get("/get-by-status", [SecretValidator.validate], controller.getByStatus);
+
+        router.post("/create", [SecretValidator.validate], controller.create);
 
         router.put("/update", [SecretValidator.validate], controller.update)
-        router.put("/update-prices", [SecretValidator.validate], controller.updatePrices)
         
         router.delete("/delete", [SecretValidator.validate], controller.delete)
 
