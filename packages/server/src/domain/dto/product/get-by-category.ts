@@ -1,26 +1,26 @@
 import { Sanitizer, TypeChecker } from "../../../config";
 import { ErrorType } from "../../error/error-types";
 
-export class GetProductByIdDTO {
+export class GetProductsByCategoryDTO {
     private constructor(
-        public id: string,
+        public categoryId: string,
     ){}
 
-    static create(data: {[key: string]: any}): [string?, GetProductByIdDTO?] {
+    static create(data: {[key: string]: any}): [string?, GetProductsByCategoryDTO?] {
         Sanitizer.trimStrings(data);
         
-        if (!TypeChecker.areDefined([data.id])) {
+        if (!TypeChecker.areDefined([data.categoryId])) {
             return [ErrorType.MissingFields];
         }
 
-        if (!TypeChecker.areStrings([data.id])) {
+        if (!TypeChecker.areStrings([data.categoryId])) {
             return [ErrorType.InvalidFields];
         }
 
         return [
             undefined, 
-            new GetProductByIdDTO(
-                data.id
+            new GetProductsByCategoryDTO(
+                data.categoryId
             )
         ];
     }
