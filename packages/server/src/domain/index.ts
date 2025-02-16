@@ -2,7 +2,6 @@ export * from './datasources/product';
 export * from './dto/product/create';
 export * from './dto/product/delete';
 export * from './dto/product/get-by-id';
-export * from './dto/product/update-prices';
 export * from './dto/product/update';
 export * from './entities/category';
 export * from './entities/product';
