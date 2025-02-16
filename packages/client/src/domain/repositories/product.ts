@@ -1,6 +1,6 @@
 import { ProductEntity } from "../entities/product";
 
-export abstract class ProductRepository {
+export abstract class ProductRepositoryI {
     abstract findAll(): Promise<ProductEntity[]>;
     abstract findById(id: string): Promise<ProductEntity | null>;
     abstract findByCategory(category: string): Promise<ProductEntity[] | null>;
