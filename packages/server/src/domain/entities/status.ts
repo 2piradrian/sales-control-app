@@ -1,4 +1,4 @@
-export class CategoryEntity {
+export class StatusEntity {
 
     private constructor(
         public id: string | undefined,
@@ -7,9 +7,9 @@ export class CategoryEntity {
         public updatedAt: Date
     ){}
 
-    static fromObject(object: {[key: string]: any}): CategoryEntity {
+    static fromObject(object: {[key: string]: any}): StatusEntity {
 
-        return new CategoryEntity(
+        return new StatusEntity(
             object.id,
             object.name,
             object.created_at,

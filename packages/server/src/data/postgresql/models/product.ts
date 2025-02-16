@@ -51,10 +51,6 @@ ProductModel.init({
             key: "id"
         }
     },
-    index: {
-        type: DataTypes.TEXT,
-        allowNull: false
-    },
     createdAt: {
         type: DataTypes.DATE,
         allowNull: false

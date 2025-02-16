@@ -9,7 +9,6 @@ export class ProductEntity {
         public price: number,
         public categoryId: string,
         public statusId: string,
-        public index: string,
         public createdAt: Date,
         public updatedAt: Date,
     ){}
@@ -25,7 +24,6 @@ export class ProductEntity {
             object.price,
             object.categoryId,
             object.statusId,
-            object.index,
             object.createdAt,
             object.updatedAt
         );
