@@ -15,9 +15,9 @@ export class ErrorHandler extends Error {
         console.error(error);
 
         if (error instanceof ErrorHandler) {
-            return res.status(error.statusCode).json({ error: error.message });
+            res.status(error.statusCode).json({ error: error.message });
         }
-        return res.status(500).json({ error: ErrorType.InternalError });
+        res.status(500).json({ error: ErrorType.InternalError });
     }
 
 }
