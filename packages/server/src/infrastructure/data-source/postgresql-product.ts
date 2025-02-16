@@ -29,9 +29,9 @@ export class PostgresqlProductDataSource implements ProductDataSource {
         }
     };
 
-    public async findByCategory(category: string): Promise<ProductEntity[] | null> {
+    public async findByCategory(categoryId: string): Promise<ProductEntity[]> {
         try {
-            const products = await ProductModel.findAll({ where: { category: category } });
+            const products = await ProductModel.findAll({ where: { categoryId: categoryId } });
 
             return products.map(product => ProductEntity.fromObject(product)) || [];
         }
@@ -40,9 +40,9 @@ export class PostgresqlProductDataSource implements ProductDataSource {
         }
     };
 
-    public async findByStatus(status: string): Promise<ProductEntity[] | null> {
+    public async findByStatus(statusId: string): Promise<ProductEntity[]> {
         try {
-            const products = await ProductModel.findAll({ where: { status: status } });
+            const products = await ProductModel.findAll({ where: { statusId: statusId } });
 
             return products.map(product => ProductEntity.fromObject(product)) || [];
         }
@@ -94,9 +94,9 @@ export class PostgresqlProductDataSource implements ProductDataSource {
         }
     };
 
-    public async delete(code: string): Promise<void> {
+    public async delete(id: string): Promise<void> {
         try {
-            await ProductModel.destroy({ where: { id: code } });
+            await ProductModel.destroy({ where: { id: id } });
         }
         catch(error){
             throw error
