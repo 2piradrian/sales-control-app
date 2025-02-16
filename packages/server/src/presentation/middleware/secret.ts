@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { ErrorType } from "../../domain";
+import { env } from "../../config";
 
 export class SecretValidator {
 
@@ -13,7 +14,7 @@ export class SecretValidator {
                 return;
             }
 
-            if (secret !== process.env.SECRET) {
+            if (secret !== env.SECRET_KEY) {
                 res.status(401).json({ error: ErrorType.Unauthorized });
                 return;
             }
