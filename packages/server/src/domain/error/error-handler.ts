@@ -17,6 +17,7 @@ export class ErrorHandler extends Error {
         if (error instanceof ErrorHandler) {
             res.status(error.statusCode).json({ error: error.message });
         }
+        
         res.status(500).json({ error: ErrorType.InternalError });
     }
 

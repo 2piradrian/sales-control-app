@@ -1,14 +1,14 @@
-import { CreateProductDTO, DeleteProductDTO, GetProductByIdDTO, GetProductsByCategoryDTO, GetProductsByStatusDTO, ProductEntity, UpdateProductDTO } from "../../../domain";
+import { CreateProductDTO, DeleteProductDTO, ErrorHandler, ErrorType, GetProductByIdDTO, GetProductsByCategoryDTO, GetProductsByStatusDTO, ProductEntity, UpdateProductDTO } from "../../../domain";
 import { ProductRepository_I } from "../../../infrastructure";
 
 export class ProductService {
     constructor(
-        private readonly repository = new ProductRepository_I()
+        private readonly productsRepository = new ProductRepository_I()
     ){}
 
     public async getAll() {
         try {
-            return await this.repository.findAll();
+            return await this.productsRepository.findAll();
         }
         catch(error){
             throw error
@@ -17,7 +17,13 @@ export class ProductService {
 
     public async getById(dto: GetProductByIdDTO) {
         try {
-            return await this.repository.findById(dto.id);
+            const product = await this.productsRepository.findById(dto.id);
+            
+            if (!product) {
+                throw new ErrorHandler(404, ErrorType.NotFound);
+            }
+
+            return product;
         }
         catch(error){
             throw error
@@ -26,7 +32,7 @@ export class ProductService {
 
     public async getByCategory(dto: GetProductsByCategoryDTO) {
         try {
-            return await this.repository.findByCategory(dto.categoryId);
+            return await this.productsRepository.findByCategory(dto.categoryId);
         }
         catch(error){
             throw error
@@ -35,7 +41,7 @@ export class ProductService {
 
     public async getByStatus(dto: GetProductsByStatusDTO) {
         try {
-            return await this.repository.findByStatus(dto.statusId);
+            return await this.productsRepository.findByStatus(dto.statusId);
         }
         catch(error){
             throw error
@@ -46,7 +52,7 @@ export class ProductService {
         try {
             const product = ProductEntity.fromObject(dto);
 
-            return await this.repository.create(product);
+            return await this.productsRepository.create(product);
         }
         catch(error){
             throw error
@@ -56,8 +62,13 @@ export class ProductService {
     public async update(dto: UpdateProductDTO) {
         try {
             const product = ProductEntity.fromObject(dto);
+            const productExists = await this.productsRepository.findById(product.id!);
 
-            return await this.repository.update(product);
+            if (!productExists) {
+                throw new ErrorHandler(404, ErrorType.NotFound);
+            }
+
+            return await this.productsRepository.update(product);
         }
         catch(error){
             throw error
@@ -66,7 +77,13 @@ export class ProductService {
 
     public async delete(dto: DeleteProductDTO) {
         try {
-            return await this.repository.delete(dto.id);
+            const productExists = await this.productsRepository.findById(dto.id);
+
+            if (!productExists) {
+                throw new ErrorHandler(404, ErrorType.NotFound);
+            }
+            
+            return await this.productsRepository.delete(dto.id);
         }
         catch(error){
             throw error

@@ -5,6 +5,7 @@ export enum ErrorType {
 	InvalidPassword         = "Invalid password",
 	Unknown                 = "Unknown error",
 	NotFound                = "Not found",
+	Conflict                = "Conflict",
 	Unauthorized            = "Unauthorized",
 	Disconnected            = "Disconnected",
 	InvalidSecret           = "Invalid secret",

@@ -3,6 +3,7 @@ import { ErrorType } from "../../error/error-types";
 
 export class UpdateProductDTO {
     private constructor(
+        public id: string,
         public name: string,
         public description: string,
         public stock: number,
@@ -15,7 +16,7 @@ export class UpdateProductDTO {
     static create(data: {[key: string]: any}): [string?, UpdateProductDTO?] {
         Sanitizer.trimStrings(data);
 
-        if (!TypeChecker.areDefined([data.name, data.description, data.stock, data.stockAlert, data.price, data.categoryId, data.statusId])) {
+        if (!TypeChecker.areDefined([data.id, data.name, data.description, data.stock, data.stockAlert, data.price, data.categoryId, data.statusId])) {
             return [ErrorType.MissingFields];
         }
 
@@ -34,13 +35,14 @@ export class UpdateProductDTO {
         data.stock = parseInt(data.stock);
         data.stockAlert = parseInt(data.stockAlert);
 
-        if (!TypeChecker.areStrings([data.name, data.description, data.categoryId, data.statusId])) {
+        if (!TypeChecker.areStrings([data.id, data.name, data.description, data.categoryId, data.statusId])) {
             return [ErrorType.InvalidFields];
         }
 
         return [
             undefined, 
             new UpdateProductDTO(
+                data.id,
                 data.name, 
                 data.description, 
                 data.stock, 
