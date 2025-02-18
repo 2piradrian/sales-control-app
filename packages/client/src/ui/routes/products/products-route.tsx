@@ -23,18 +23,6 @@ export default function ProductsRoute() {
                         path="/products/edit-product"
                     />
                     <FeatureButton 
-                        name="Creá una categoría" 
-                        description="Agregá una nueva categoría de productos."
-                        icon="/icons/categorylist.svg"
-                        path="/products/create-category"
-                    />
-                    <FeatureButton 
-                        name="Editá o eliminá categorías" 
-                        description="Modificá las categorías de productos existentes en el sistema."
-                        icon="/icons/pencil.svg"
-                        path="/products/edit-category"
-                    />
-                                        <FeatureButton 
                         name="Registrá una compra" 
                         description="Registrá una compra de productos para reponer stock." 
                         icon="/icons/alertfile.svg"
