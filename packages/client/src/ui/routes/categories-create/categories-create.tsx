@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import CategoryForm from "../../components/category-form/category-form";
 import Title from "../../components/title/title";
 import Layout from "../../layout/layout";
@@ -7,6 +8,7 @@ import style from "./style.module.css";
 
 export default function CategoriesCreate() {
 
+  const navigate = useNavigate();
   const { createCategory } = useViewModel();
 
   return (
@@ -16,7 +18,7 @@ export default function CategoriesCreate() {
           <Title text="Crear Categoría" />
           <CategoryForm 
             onSubmit={createCategory}
-            onCancel={() => {}}
+            onCancel={() => {navigate("/categories")}}
           />
         </div>
       </section>
