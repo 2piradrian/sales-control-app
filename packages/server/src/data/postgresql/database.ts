@@ -1,7 +1,5 @@
 import { Sequelize } from "sequelize";
-import { ProductModel } from "./models/product";
-import { CategoryModel } from "./models/category";
-import { StatusModel } from "./models/status";
+import setup from "./config/setup";
 
 export class PostgresqlDatabase {
 
@@ -21,6 +19,9 @@ export class PostgresqlDatabase {
     public async connect() {
         try{
             await this.sequelize.authenticate();
+
+            await setup(this.sequelize);
+
             await this.sequelize.sync();
 
             console.log("Connected to Postgresql");

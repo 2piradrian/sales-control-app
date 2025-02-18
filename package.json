@@ -13,6 +13,7 @@
     "electron": "^1.0.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "concurrently": "^7.0.0",
     "wait-on": "^6.0.0"
   }

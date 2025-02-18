@@ -6,34 +6,34 @@ export class ProductRepository_I implements ProductRepository {
 
     constructor() {
         this.dataSource = new PostgresqlProductDataSource();
-    }
+    };
 
     public findAll(): Promise<ProductEntity[]> {
         return this.dataSource.findAll();
-    }
+    };
 
-    public findById(code: string): Promise<ProductEntity | null> {
-        return this.dataSource.findById(code);
-    }
+    public findById(id: string): Promise<ProductEntity | null> {
+        return this.dataSource.findById(id);
+    };
 
-    public findByCategory(category: string): Promise<ProductEntity[] | null> {
-        return this.dataSource.findByCategory(category);
-    }
+    public findByCategory(categoryId: string): Promise<ProductEntity[]> {
+        return this.dataSource.findByCategory(categoryId);
+    };
 
-    public findByStatus(status: string): Promise<ProductEntity[] | null> {
-        return this.dataSource.findByStatus(status);
-    }
+    public findByStatus(statusId: string): Promise<ProductEntity[]> {
+        return this.dataSource.findByStatus(statusId);
+    };
 
     public create(product: ProductEntity): Promise<ProductEntity> {
         return this.dataSource.create(product);
-    }
+    };
 
     public update(product: ProductEntity): Promise<ProductEntity> {
         return this.dataSource.update(product);
-    }
+    };
 
-    public delete(code: string): Promise<void> {
-        return this.dataSource.delete(code);
+    public delete(id: string): Promise<void> {
+        return this.dataSource.delete(id);
     }
 
 }

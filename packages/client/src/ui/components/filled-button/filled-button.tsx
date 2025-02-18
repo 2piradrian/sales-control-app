@@ -2,13 +2,18 @@ import style from "./style.module.css";
 
 type Props = {
     text: string;
-    onClick: () => void;
+    type: "button" | "submit";
+    onClick?: () => void;
     modifier?: string;
 }
 
-export default function FilledButton({ text, onClick, modifier }: Props) {
+export default function FilledButton({ text, onClick, type, modifier }: Props) {
     return (
-        <button className={`${style.container} ${modifier}`} onClick={onClick}>
+        <button 
+            className={`${style.container} ${modifier}`} 
+            onClick={onClick} 
+            type={type}
+        >
             {text}
         </button>
     );

@@ -1,4 +1,9 @@
+export * from './datasources/category';
 export * from './datasources/product';
+export * from './dto/category/create';
+export * from './dto/category/delete';
+export * from './dto/category/get-by-id';
+export * from './dto/category/update';
 export * from './dto/product/create';
 export * from './dto/product/delete';
 export * from './dto/product/get-by-category';
@@ -10,4 +15,5 @@ export * from './entities/product';
 export * from './entities/status';
 export * from './error/error-handler';
 export * from './error/error-types';
+export * from './repositories/category';
 export * from './repositories/product';
