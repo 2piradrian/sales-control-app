@@ -72,4 +72,4 @@ export class ProductRepository implements ProductRepositoryI {
         }
     };
     
-}
+};
