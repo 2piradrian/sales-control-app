@@ -7,6 +7,7 @@ export default function useViewModel() {
 
     const createCategory = async (e: React.FormEvent<HTMLFormElement>) => {
         try {
+            e.preventDefault();
             const form = Object.fromEntries(new FormData(e.currentTarget));
 
             if(!form.name) {
