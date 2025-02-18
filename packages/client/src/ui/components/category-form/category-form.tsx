@@ -3,9 +3,15 @@ import InputLabel from "../input-label/input-label";
 import OutlinedButton from "../outlined-button/outlined-button";
 import style from "./style.module.css";
 
-export default function CategoryForm() {
+type Props = {
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  onCancel: () => void;
+};
+
+export default function CategoryForm({ onSubmit, onCancel }: Props) {
+
   return (
-    <div className={style.container}>
+    <form className={style.container} onSubmit={onSubmit}>
         <InputLabel
           id="name"
           label="Nombre"
@@ -15,9 +21,10 @@ export default function CategoryForm() {
           value=""
         />
         <div className={style.buttons}>
-          <OutlinedButton text="Cancelar" onClick={() => {}} />
-          <FilledButton text="Crear" onClick={() => {}} />
+          <OutlinedButton text="Cancelar" onClick={() => {onCancel()}} />
+          <FilledButton text="Crear" type="submit" />
         </div>
-    </div>
+    </form>
   );
+  
 }

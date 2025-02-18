@@ -7,17 +7,14 @@ import style from "./style.module.css";
 
 export default function CategoriesCreate() {
 
-  const { createCategory } = useViewModel();
+  const { loading, categories } = useViewModel();
 
   return (
     <Layout>
       <section className={`${style.container} container`}>
         <div className={`${style.delimiter} delimiter`}>
           <Title text="Crear Categoría" />
-          <CategoryForm 
-            onSubmit={createCategory}
-            onCancel={() => {}}
-          />
+          <CategoryForm />
         </div>
       </section>
     </Layout>
