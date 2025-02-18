@@ -13,14 +13,23 @@ export default function useViewModel() {
     /* --- ----- --- */
 
     useEffect(() => {
-        getAllCategories().then((categories) => {
-            setCategories(categories);
-            setLoading(false);
-        });
+        fetch().then(() => { setLoading(false) });
     }, []);
 
+    const fetch = async () => {
+        setLoading(true);
+
+        const categories = await getAllCategories() || [];
+        setCategories(categories);  
+    };
+
     const getAllCategories = async () => {
-        return await categoryRepository.findAll();
+        try {
+            return await categoryRepository.findAll();
+        }
+        catch (error) {
+            console.error(error);
+        }
     };
 
     return {
