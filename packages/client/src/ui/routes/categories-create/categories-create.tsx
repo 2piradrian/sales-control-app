@@ -18,7 +18,7 @@ export default function CategoriesCreate() {
           <Title text="Crear Categoría" />
           <CategoryForm 
             onSubmit={(e) => {
-                createCategory(e).then(() => { navigate("/categories/edit"); })
+                createCategory(e).then(() => { navigate("/categories/list"); })
               }
             }
             onCancel={() => {navigate("/categories")}}
