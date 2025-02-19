@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Layout from "../../layout/layout";
 import Title from "../../components/title/title";
 import Table from "../../components/table/table";
@@ -7,6 +8,7 @@ import style from "./style.module.css";
 
 export default function CategoriesList() {
 
+  const navigate = useNavigate();
   const { loading, categories } = useViewModel();
 
   return (
@@ -20,7 +22,7 @@ export default function CategoriesList() {
               headers={["Nombre"]} 
               fields={["name"]}  
               data={categories} 
-              onRowClick={(id) => { console.log(id); }} 
+              onRowClick={(id) => { navigate(`/categories/edit/${id}`) }} 
             /> 
           }
         </div>
