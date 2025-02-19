@@ -5,7 +5,7 @@ export default function useViewModel() {
 
     const { categoryRepository } = useRepositories();
 
-    const createCategory = async (e: React.FormEvent<HTMLFormElement>) => {
+    const createCategory = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         try {
             e.preventDefault();
             const form = Object.fromEntries(new FormData(e.currentTarget));
