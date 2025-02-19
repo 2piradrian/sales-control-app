@@ -12,7 +12,7 @@ export default function useViewModel() {
     /* --- ----- --- */
 
     useEffect(() => {
-        fetch().then(() => { setLoading(false) });
+        fetch();
         sendAlert({type: "info", message: "Clickeá una categoría para editarla o eliminarla"});
     }, []);
 
@@ -21,6 +21,8 @@ export default function useViewModel() {
 
         const categories = await getAllCategories() || [];
         setCategories(categories);  
+
+        setLoading(false);
     };
 
     const getAllCategories = async () => {
