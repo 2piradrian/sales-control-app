@@ -5,3 +5,4 @@ export * from './entities/product';
 export * from './entities/status';
 export * from './repositories/category';
 export * from './repositories/product';
+export * from './type/alert';
