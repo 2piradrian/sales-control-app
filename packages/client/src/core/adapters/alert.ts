@@ -11,7 +11,7 @@ export function sendAlert(alert: Alert) {
             toast.error(alert.message);
             break;
         case "info":
-            toast(alert.message);
+            toast(alert.message, {icon: "ℹ️"});
             break;
         case "nothing":
             break;

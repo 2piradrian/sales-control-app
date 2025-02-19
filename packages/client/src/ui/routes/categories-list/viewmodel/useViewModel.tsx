@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useRepositories } from "../../../../core";
+import { sendAlert, useRepositories } from "../../../../core";
 import { CategoryEntity } from "../../../../domain";
 
 export default function useViewModel() {
@@ -13,6 +13,7 @@ export default function useViewModel() {
 
     useEffect(() => {
         fetch().then(() => { setLoading(false) });
+        sendAlert({type: "info", message: "Clickeá una categoría para editarla o eliminarla"});
     }, []);
 
     const fetch = async () => {
