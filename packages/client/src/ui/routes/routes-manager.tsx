@@ -2,9 +2,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomeRoute from "./home/home-route";
 import ProductsRoute from "./products/products-route";
 import ProductsCreate from "./products-create/products-create";
+import ProductsEdit from "./products-edit/products-edit";
 import CategoriesRoute from "./categories/categories-route";
 import CategoriesCreate from "./categories-create/categories-create";
-import ProductsEdit from "./products-edit/products-edit";
+import CategoriesList from "./categories-list/categories-list";
 
 export default function RoutesManager() {
     return(
@@ -19,6 +20,7 @@ export default function RoutesManager() {
 
                 <Route path="/categories" element={<CategoriesRoute />} />
                 <Route path="/categories/create" element={<CategoriesCreate />} />
+                <Route path="/categories/list" element={<CategoriesList />} />
                 
                 <Route path="/sales" element={<HomeRoute />} />
                 <Route path="/users" element={<HomeRoute />} />
