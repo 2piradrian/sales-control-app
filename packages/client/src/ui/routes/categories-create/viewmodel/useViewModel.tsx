@@ -1,34 +1,30 @@
-import { useEffect, useState } from "react";
 import { useRepositories, sendAlert } from "../../../../core";
-import { CategoryEntity, Alert } from "../../../../domain";
+import { CategoryEntity } from "../../../../domain";
 
 export default function useViewModel() {
 
     const { categoryRepository } = useRepositories();
 
-    /* --- States --- */
-    const [alert, setAlert] = useState<Alert>({ message: "", type: "nothing" });
-    /* --- ----- --- */
-
-    useEffect(() => {
-        sendAlert(alert);
-    }, [alert]);
-
     const createCategory = async (e: React.FormEvent<HTMLFormElement>) => {
         try {
             e.preventDefault();
             const form = Object.fromEntries(new FormData(e.currentTarget));
-
+            
             if(!form.name) {
-                return setAlert({type: "error", message: "El nombre de la categoría es requerido"});
+                sendAlert({type: "error", message: "El nombre de la categoría es requerido"});
+                return;
             }
 
             const category = CategoryEntity.fromObject(form);
             await categoryRepository.create(category);
+            
+            sendAlert({type: "success", message: "Categoría creada con éxito"});
+            return Promise.resolve();
         }
         catch (error) {
             console.error(error);
-            return setAlert({type: "error", message: "Ha ocurrido un error al crear la categoría"});
+            sendAlert({type: "error", message: "Ha ocurrido un error al crear la categoría"});
+            return Promise.reject();
         }
     };
 

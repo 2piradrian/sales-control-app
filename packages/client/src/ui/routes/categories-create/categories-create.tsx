@@ -17,7 +17,10 @@ export default function CategoriesCreate() {
         <div className={`${style.delimiter} delimiter`}>
           <Title text="Crear Categoría" />
           <CategoryForm 
-            onSubmit={createCategory}
+            onSubmit={(e) => {
+                createCategory(e).then(() => { navigate("/categories/edit"); })
+              }
+            }
             onCancel={() => {navigate("/categories")}}
           />
         </div>
