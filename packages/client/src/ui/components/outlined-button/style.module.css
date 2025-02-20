@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    background-color: var(--background);
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 18px;
+}

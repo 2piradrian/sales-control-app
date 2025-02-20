@@ -1,0 +1,25 @@
+.container {
+    width: 100%;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.buttonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete {
+    background-color: var(--error);
+}
