@@ -19,8 +19,8 @@ export default function CategoriesList() {
           { loading && <p>Cargando...</p> }
           { !loading && 
             <Table 
-              headers={["Nombre"]} 
-              fields={["name"]}  
+              headers={["Nombre"]}
+              fields={["name"]}
               data={categories} 
               onRowClick={(id) => { navigate(`/categories/edit/${id}`) }} 
             /> 

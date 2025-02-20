@@ -6,6 +6,7 @@ import ProductsEdit from "./products-edit/products-edit";
 import CategoriesRoute from "./categories/categories-route";
 import CategoriesCreate from "./categories-create/categories-create";
 import CategoriesList from "./categories-list/categories-list";
+import CategoriesEdit from "./categories-edit/categories-edit";
 
 export default function RoutesManager() {
     return(
@@ -21,6 +22,7 @@ export default function RoutesManager() {
                 <Route path="/categories" element={<CategoriesRoute />} />
                 <Route path="/categories/create" element={<CategoriesCreate />} />
                 <Route path="/categories/list" element={<CategoriesList />} />
+                <Route path="/categories/edit/:id" element={<CategoriesEdit />} />
                 
                 <Route path="/sales" element={<HomeRoute />} />
                 <Route path="/users" element={<HomeRoute />} />

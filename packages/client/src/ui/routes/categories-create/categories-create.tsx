@@ -21,7 +21,10 @@ export default function CategoriesCreate() {
                 createCategory(e).then(() => { navigate("/categories/list"); })
               }
             }
-            onCancel={() => {navigate("/categories")}}
+            onCancel={() => {
+                navigate("/categories")
+              }
+            }
           />
         </div>
       </section>

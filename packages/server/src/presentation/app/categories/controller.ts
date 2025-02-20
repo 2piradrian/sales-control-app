@@ -14,7 +14,7 @@ export class CategoryController {
     };
 
     getById = (req: Request, res: Response) => {
-        const [error, dto] = GetCategoryByIdDTO.create(req.params);
+        const [error, dto] = GetCategoryByIdDTO.create(req.query);
 
         if (error) {
             ErrorHandler.handle(error, req, res);

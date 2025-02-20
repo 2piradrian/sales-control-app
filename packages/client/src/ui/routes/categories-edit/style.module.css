@@ -1,0 +1,9 @@
+.container {
+    min-height: 100%;
+}
+
+.delimiter {
+    min-height: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
