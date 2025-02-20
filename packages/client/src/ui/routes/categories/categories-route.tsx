@@ -24,7 +24,7 @@ export default function CategoriesRoute() {
                         name="Editá o eliminá categorías" 
                         description="Modificá las categorías de productos existentes en el sistema."
                         icon="/icons/pencil.svg"
-                        onClick={() => {navigate("/categories/edit")}}
+                        onClick={() => {navigate("/categories/list")}}
                       />
                   </div>
               </div>

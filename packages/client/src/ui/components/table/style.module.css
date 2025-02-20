@@ -1,0 +1,32 @@
+.table {
+    width: 100%;
+    margin: 10px 0px;
+    border-collapse: collapse;
+    border: 2px solid var(--primary);
+}
+
+.table th {
+    height: 50px;
+    text-align: left;
+    background-color: var(--surface);
+    color: var(--primary);
+    padding: 10px;
+    border: 2px solid var(--primary);
+}
+
+.table td {
+    height: 50px;
+    padding: 10px;
+    border: 1px solid var(--primary);
+    cursor: pointer;
+}
+
+.table tr:nth-child(even) {
+    background-color: var(--background);
+}
+
+.table td:hover {
+    transition: all 0.3s;
+    transform: scale(1.005);
+    font-weight: bold;
+}

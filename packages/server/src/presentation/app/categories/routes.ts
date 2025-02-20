@@ -11,8 +11,8 @@ export class CategoryRoutes {
         const controller = new CategoryController(service)
 
         router.get("/get-all", [SecretValidator.validate], controller.getAll);
-
-        router.get("/get-by-id/:id", [SecretValidator.validate], controller.getById);
+        
+        router.get("/get-by-id", [SecretValidator.validate], controller.getById);
 
         router.post("/create", [SecretValidator.validate], controller.create);
 
