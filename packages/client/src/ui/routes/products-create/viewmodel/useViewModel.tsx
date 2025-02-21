@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { sendAlert, useRepositories } from "../../../../core";
-import { CategoryEntity, ProductEntity } from "../../../../domain";
+import { CategoryEntity, ProductEntity, StatusEntity } from "../../../../domain";
 
 export default function useViewModel() {
 
-    const { productRepository, categoryRepository } = useRepositories();
+    const { productRepository, categoryRepository, statusRepository } = useRepositories();
 
     /* --- States --- */
     const [loading, setLoading] = useState<boolean>(true);
     const [categories, setCategories] = useState<CategoryEntity[]>();
+    const [statuses, setStatuses] = useState<StatusEntity[]>();
     /* --- ----- --- */
 
     useEffect(() => {
@@ -17,18 +18,14 @@ export default function useViewModel() {
 
     const fetch = async () => {
         setLoading(true);
-        const categories = await getCategories() || [];
-        setCategories(categories);
-        setLoading(false);
-    };
 
-    const getCategories = async () => {
-        try {
-            return await categoryRepository.findAll();
-        }
-        catch (error) {
-            console.error(error);
-        }
+        const categoriesFetched = await categoryRepository.findAll() || [];
+        setCategories(categoriesFetched);
+
+        const statusesFetched = await statusRepository.findAll() || [];
+        setStatuses(statusesFetched);
+        
+        setLoading(false);
     };
 
     const createProduct = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
@@ -52,6 +49,7 @@ export default function useViewModel() {
     return {
         loading,
         categories,
+        statuses,
         createProduct
     };
 
