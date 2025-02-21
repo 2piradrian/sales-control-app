@@ -9,7 +9,7 @@ export class CategoryController {
 
     getAll = (req: Request, res: Response) => {
         this.categoryService.getAll()
-        .then((products) => res.status(200).json(products))
+        .then((categories) => res.status(200).json(categories))
         .catch(error => ErrorHandler.handle(error, req, res));
     };
 
@@ -21,7 +21,7 @@ export class CategoryController {
         }
 
         this.categoryService.getById(dto!)
-        .then((product) => res.status(200).json(product))
+        .then((category) => res.status(200).json(category))
         .catch(error => ErrorHandler.handle(error, req, res));
     };
 
