@@ -1,5 +1,5 @@
 import { HTTPClient } from "../../core";
-import { StatusDataSourceI, CategoryEntity } from "../../domain";
+import { StatusDataSourceI, StatusEntity } from "../../domain";
 
 export class StatusApiDataSource implements StatusDataSourceI {
 
@@ -9,7 +9,7 @@ export class StatusApiDataSource implements StatusDataSourceI {
         this.httpClient = new HTTPClient();
     };
 
-    public async findAll(): Promise<CategoryEntity[]> {
+    public async findAll(): Promise<StatusEntity[]> {
         try {
             return await this.httpClient.get("/statuses/get-all");
         }
@@ -19,7 +19,7 @@ export class StatusApiDataSource implements StatusDataSourceI {
 
     };
 
-    public async findById(id: string): Promise<CategoryEntity> {
+    public async findById(id: string): Promise<StatusEntity> {
         try {
             return await this.httpClient.get("/statuses/get-by-id", { id: id });
         }
