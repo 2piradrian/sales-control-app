@@ -11,6 +11,7 @@ export * from './dto/product/get-by-category';
 export * from './dto/product/get-by-id';
 export * from './dto/product/get-by-status';
 export * from './dto/product/update';
+export * from './dto/status/get-by-id';
 export * from './entities/category';
 export * from './entities/product';
 export * from './entities/status';
