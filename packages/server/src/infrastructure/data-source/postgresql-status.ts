@@ -1,24 +1,24 @@
-import { CategoryModel } from "../../data";
-import { CategoryEntity, StatusDataSource } from "../../domain";
+import { StatusModel } from "../../data";
+import { StatusDataSource, StatusEntity } from "../../domain";
 
 export class PostgresqlStatusDataSource implements StatusDataSource {
 
-    public async findAll(): Promise<CategoryEntity[]> {
+    public async findAll(): Promise<StatusEntity[]> {
         try {
-            const categories = await CategoryModel.findAll();
+            const statuses = await StatusModel.findAll();
 
-            return categories.map(category => CategoryEntity.fromObject(category)) || [];
+            return statuses.map(status => StatusEntity.fromObject(status)) || [];
         }
         catch(error){
             throw error
         }
     };
 
-    public async findById(id: string): Promise<CategoryEntity | null> {
+    public async findById(id: string): Promise<StatusEntity | null> {
         try {
-            const category = await CategoryModel.findByPk(id);
+            const status = await StatusModel.findByPk(id);
 
-            return category ? CategoryEntity.fromObject(category) : null;
+            return status ? StatusEntity.fromObject(status) : null;
         }
         catch(error){
             throw error

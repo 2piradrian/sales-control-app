@@ -1,19 +1,18 @@
-import { CategoryEntity, StatusRepository } from "../../domain";
-import { PostgresqlCategoryDataSource } from "../data-source/postgresql-category";
+import { StatusEntity, StatusRepository } from "../../domain";
 import { PostgresqlStatusDataSource } from "../data-source/postgresql-status";
 
 export class StatusRepository_I implements StatusRepository {
     private dataSource: PostgresqlStatusDataSource;
 
     constructor() {
-        this.dataSource = new PostgresqlCategoryDataSource();
+        this.dataSource = new PostgresqlStatusDataSource();
     };
 
-    public findAll(): Promise<CategoryEntity[]> {
+    public findAll(): Promise<StatusEntity[]> {
         return this.dataSource.findAll();
     };
 
-    public findById(id: string): Promise<CategoryEntity | null> {
+    public findById(id: string): Promise<StatusEntity | null> {
         return this.dataSource.findById(id);
     };
 
