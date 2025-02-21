@@ -25,9 +25,11 @@ export default function CategoryForm({ onSubmit, onCancel, onDelete, category }:
         />
         <div>
           <div className={style.buttonContainer}>
-              { onDelete && <FilledButton type="button" text="Eliminar" onClick={() => {onDelete()}} modifier={style.delete}/> }
+              { onDelete && 
+                <FilledButton type="button" text="Eliminar" onClick={() => {onDelete()}} modifier={style.delete}/> 
+              }
               <div className={style.buttons}>
-                <OutlinedButton text="Cancelar" onClick={() => {onCancel()}} />
+                <OutlinedButton text="Cancelar" onClick={() => {onCancel()}} type="button" />
                 <FilledButton text={category ? "Editar" : "Crear"} type="submit" />
               </div>
           </div>

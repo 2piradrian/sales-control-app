@@ -10,11 +10,6 @@ export default function useViewModel() {
             e.preventDefault();
             const form = Object.fromEntries(new FormData(e.currentTarget));
             
-            if(!form.name) {
-                sendAlert({type: "error", message: "El nombre de la categoría es requerido"});
-                return;
-            }
-
             const category = CategoryEntity.fromObject(form);
             await categoryRepository.create(category);
             

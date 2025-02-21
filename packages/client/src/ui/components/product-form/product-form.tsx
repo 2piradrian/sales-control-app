@@ -1,19 +1,29 @@
+import { CategoryEntity, ProductEntity } from "../../../domain";
 import FilledButton from "../filled-button/filled-button";
 import InputLabel from "../input-label/input-label";
 import OutlinedButton from "../outlined-button/outlined-button";
 import SelectLabel from "../select-label/select-label";
 import style from "./style.module.css";
 
-export default function ProductForm() {
+type Props = {
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  onCancel: () => void;
+  onDelete?: () => void;
+  categories: CategoryEntity[];
+  product?: ProductEntity;
+};
+
+export default function ProductForm({ onSubmit, onCancel, onDelete, categories, product }: Props) {
+  
   return (
-    <div className={style.container}>
+    <form className={style.container} onSubmit={onSubmit}>
         <InputLabel
           id="name"
           label="Nombre"
           placeholder="Nombre del producto"
           required={true}
           type="text"
-          value=""
+          value={product?.name}
         />
         <InputLabel
           id="description"
@@ -21,7 +31,7 @@ export default function ProductForm() {
           placeholder="Descripción del producto"
           required={false}
           type="text"
-          value=""
+          value={product?.description}
         />
         <InputLabel
           id="stock"
@@ -29,7 +39,7 @@ export default function ProductForm() {
           placeholder="Existencias disponibles"
           required={true}
           type="number"
-          value=""
+          value={product?.stock.toString()}
         />
         <InputLabel
           id="stockAlert"
@@ -37,7 +47,7 @@ export default function ProductForm() {
           placeholder="Cuando el stock sea menor o igual a"
           required={true}
           type="number"
-          value=""
+          value={product?.stockAlert.toString()}
         />
         <InputLabel
           id="price"
@@ -45,13 +55,13 @@ export default function ProductForm() {
           placeholder="Precio del producto"
           required={true}
           type="number"
-          value=""
+          value={product?.price.toString()}
         />
         <SelectLabel
           id="category"
           label="Categoría"
-          value=""
-          values={["Electrónica", "Hogar", "Jardín", "Deportes"]}
+          value={categories.find((c) => c.id === product?.categoryId)?.name || ""}
+          values={categories.map((c) => c.name)}
         />
         <SelectLabel
           id="status"
@@ -60,9 +70,10 @@ export default function ProductForm() {
           values={["Activo", "Inactivo"]}
         />
         <div className={style.buttons}>
-          <OutlinedButton text="Cancelar" onClick={() => {}} />
-          <FilledButton text="Crear" onClick={() => {}} />
+          <OutlinedButton text="Cancelar" onClick={() => {}} type="button" />
+          <FilledButton text="Crear" onClick={() => {}} type="submit" />
         </div>
-    </div>
+    </form>
   );
+
 }

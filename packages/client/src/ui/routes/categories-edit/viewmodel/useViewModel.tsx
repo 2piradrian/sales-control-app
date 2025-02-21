@@ -23,7 +23,6 @@ export default function useViewModel() {
         setLoading(true);
         const category = await getCategory(id) || undefined;
         setCategory(category);  
-
         setLoading(false);
     };
 
