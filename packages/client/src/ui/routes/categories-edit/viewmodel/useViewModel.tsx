@@ -20,18 +20,17 @@ export default function useViewModel() {
     }, [id]);
 
     const fetch = async () => {
-        setLoading(true);
-        const category = await getCategory(id) || undefined;
-        setCategory(category);  
-        setLoading(false);
-    };
-
-    const getCategory = async (id: string) => {
         try {
-            return await categoryRepository.findById(id);
+            setLoading(true);
+
+            const categoryFetched = await await categoryRepository.findById(id) || undefined;
+            setCategory(categoryFetched);  
+
+            setLoading(false);
         }
         catch (error) {
             console.error(error);
+            sendAlert({type: "error", message: "Ha ocurrido un error al cargar la categoría"});
         }
     };
 

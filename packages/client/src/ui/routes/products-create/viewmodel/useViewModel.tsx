@@ -17,15 +17,21 @@ export default function useViewModel() {
     }, []);
 
     const fetch = async () => {
-        setLoading(true);
+        try {
+            setLoading(true);
 
-        const categoriesFetched = await categoryRepository.findAll() || [];
-        setCategories(categoriesFetched);
-
-        const statusesFetched = await statusRepository.findAll() || [];
-        setStatuses(statusesFetched);
-        
-        setLoading(false);
+            const categoriesFetched = await categoryRepository.findAll() || [];
+            setCategories(categoriesFetched);
+    
+            const statusesFetched = await statusRepository.findAll() || [];
+            setStatuses(statusesFetched);
+    
+            setLoading(false);
+        }
+        catch (error) {
+            console.error(error);
+            sendAlert({type: "error", message: "Ha ocurrido un error al cargar los datos"});
+        }
     };
 
     const createProduct = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
