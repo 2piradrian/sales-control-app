@@ -1,5 +1,6 @@
 export * from './datasources/category';
 export * from './datasources/product';
+export * from './datasources/status';
 export * from './dto/category/create';
 export * from './dto/category/delete';
 export * from './dto/category/get-by-id';
@@ -17,3 +18,4 @@ export * from './error/error-handler';
 export * from './error/error-types';
 export * from './repositories/category';
 export * from './repositories/product';
+export * from './repositories/status';
