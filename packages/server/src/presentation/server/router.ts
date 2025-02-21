@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { ProductRoutes } from "../app/products/routes";
 import { CategoryRoutes } from "../app/categories/routes";
+import { StatusRoutes } from "../app/statuses/routes";
 
 export class AppRouter {
     static get routes(): Router {
@@ -9,6 +10,8 @@ export class AppRouter {
         router.use("/api/products", ProductRoutes.routes);
 
         router.use("/api/categories", CategoryRoutes.routes);
+
+        router.use("/api/statuses", StatusRoutes.routes);
 
         return router;
     }

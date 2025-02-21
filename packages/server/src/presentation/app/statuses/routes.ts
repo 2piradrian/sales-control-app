@@ -3,7 +3,7 @@ import { SecretValidator } from "../../middleware/secret";
 import { StatusService } from "./service";
 import { StatusController } from "./controller";
 
-export class CategoryRoutes {
+export class StatusRoutes {
     static get routes(): Router {
                             
         const router = Router()
