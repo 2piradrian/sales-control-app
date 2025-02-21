@@ -1,4 +1,4 @@
-import { CategoryEntity, ProductEntity } from "../../../domain";
+import { CategoryEntity, ProductEntity, StatusEntity } from "../../../domain";
 import FilledButton from "../filled-button/filled-button";
 import InputLabel from "../input-label/input-label";
 import OutlinedButton from "../outlined-button/outlined-button";
@@ -10,10 +10,11 @@ type Props = {
   onCancel: () => void;
   onDelete?: () => void;
   categories: CategoryEntity[];
+  statuses: StatusEntity[];
   product?: ProductEntity;
 };
 
-export default function ProductForm({ onSubmit, onCancel, onDelete, categories, product }: Props) {
+export default function ProductForm({ onSubmit, onCancel, onDelete, categories, statuses, product }: Props) {
   
   return (
     <form className={style.container} onSubmit={onSubmit}>
@@ -66,8 +67,8 @@ export default function ProductForm({ onSubmit, onCancel, onDelete, categories, 
         <SelectLabel
           id="status"
           label="Estado"
-          value=""
-          values={["Activo", "Inactivo"]}
+          value={statuses.find((s) => s.id === product?.statusId)?.name || ""}
+          values={statuses.map((s) => s.name)}
         />
         <div className={style.buttons}>
           <OutlinedButton text="Cancelar" onClick={() => {}} type="button" />

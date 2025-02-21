@@ -8,7 +8,7 @@ import useViewModel from "./viewmodel/useViewModel";
 export default function ProductsCreate() {
 
   const navigate = useNavigate();
-  const { loading, categories, createProduct } = useViewModel();
+  const { loading, categories, statuses, createProduct } = useViewModel();
 
   return (
     <Layout>
@@ -16,7 +16,7 @@ export default function ProductsCreate() {
         <div className={`${style.delimiter} delimiter`}>
           <Title text="Crear Producto" />
           {loading && <p>Cargando...</p>}
-          {!loading && categories && 
+          {!loading && categories && statuses &&
             <ProductForm 
               onSubmit={(e) => {
                   createProduct(e).then(() => { navigate("/products/list"); })
@@ -27,6 +27,7 @@ export default function ProductsCreate() {
                 }
               }
               categories={categories}
+              statuses={statuses}
             />
           }
         </div>
