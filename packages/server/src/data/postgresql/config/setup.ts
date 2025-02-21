@@ -15,4 +15,28 @@ export default async function  setup(sequelize: Sequelize) {
     ProductModel.belongsTo(StatusModel, { foreignKey: "statusId" });
     ProductModel.belongsTo(CategoryModel, { foreignKey: "categoryId" });
 
+    await seedDatabase();
+
+}
+
+async function seedDatabase() {
+    try {
+
+        const categoryCount = await CategoryModel.count();
+        if (categoryCount === 0) {
+            await CategoryModel.create({ name: "Sin Categoria" });
+        }
+        
+        const statusCount = await StatusModel.count();
+        if (statusCount === 0) {
+            await StatusModel.create({ name: "Activo" });
+            await StatusModel.create({ name: "Inactivo" });
+        }
+
+        console.log("Database seeded");
+    } 
+    catch (error) {
+        console.log("Error seeding database", error);
+    }
+    
 }
