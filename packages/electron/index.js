@@ -35,8 +35,7 @@ app.whenReady().then(() => {
 
 });
 
-//// Cierra el backend cuando se cierre Electron
-//app.on("window-all-closed", () => {
-//  if (serverProcess) serverProcess.kill();
-//  if (process.platform !== "darwin") app.quit();
-//});
+app.on("window-all-closed", () => {
+  if (serverProcess) serverProcess.kill();
+  if (process.platform !== "darwin") app.quit();
+});
