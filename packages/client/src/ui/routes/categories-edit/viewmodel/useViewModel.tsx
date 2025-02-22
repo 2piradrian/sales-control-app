@@ -23,7 +23,7 @@ export default function useViewModel() {
         try {
             setLoading(true);
 
-            const categoryFetched = await await categoryRepository.findById(id) || undefined;
+            const categoryFetched = await categoryRepository.findById(id) || undefined;
             setCategory(categoryFetched);  
 
             setLoading(false);
@@ -38,11 +38,6 @@ export default function useViewModel() {
         try {
             e.preventDefault();
             const form = Object.fromEntries(new FormData(e.currentTarget));
-            
-            if(!form.name) {
-                sendAlert({type: "error", message: "El nombre de la categoría es requerido"});
-                return;
-            }
 
             const category = CategoryEntity.fromObject({...form, id});
             await categoryRepository.update(category);
